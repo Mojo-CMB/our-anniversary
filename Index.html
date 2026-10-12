@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Tink ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: #fff0f5;
+  color: #713747;
+  text-align: center;
+}
+
+header {
+  padding: 65px 20px;
+  background: linear-gradient(135deg, #ffb6c9, #f7d5e5);
+}
+
+h1 {
+  font-size: clamp(32px, 7vw, 52px);
+  margin-bottom: 12px;
+}
+
+h2 {
+  color: #c44569;
+}
+
+button {
+  border: none;
+  border-radius: 25px;
+  padding: 14px 24px;
+  background: #d94f78;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+button:hover {
+  background: #ad3159;
+}
+
+section {
+  padding: 35px 18px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  margin: 20px auto;
+  box-shadow: 0 5px 20px #e9b6c8;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit, minmax(180px, 1fr)
+  );
+  gap: 15px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+#letter {
+  display: none;
+  line-height: 1.9;
+  white-space: pre-line;
+}
+
+footer {
+  padding: 30px;
+  background: #f8ccdc;
+}
+
+.heart {
+  position: fixed;
+  bottom: -30px;
+  animation: floatUp 6s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div style="font-size: 45px;">❤️ 🌹 ❤️</div>
+  <h1>Happy 3rd Anniversary, Tink!</h1>
+  <p>To my favorite person in the whole world.</p>
+  <button onclick="showLetter()">
+    Open Your Love Letter 💌
+  </button>
+</header>
+
+<section>
+  <div class="card">
+    <h2>Our Love Story 💕</h2>
+    <p>
+      Every moment with you is a beautiful memory.
+      You make my ordinary days special, and I am
+      so grateful to have you in my life.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Time Since We Started ❤️</h2>
+    <p id="counter">Our story continues...</p>
+  </div>
+
+  <h2>Our Beautiful Memories 📸</h2>
+  <div class="gallery">
+    <img src="photo1.jpg" alt="Our first memory">
+    <img src="photo2.jpg" alt="Our special moment">
+    <img src="photo3.jpg" alt="Our favorite memory">
+    <img src="photo4.jpg" alt="Our memorable photo">
+    <img src="photo5.jpg" alt="Our recent memory">
+    <img src="photo6.jpg" alt="Our recent memory">
+    <img src="photo7.jpg" alt="Our recent memory">
+    <img src="photo8.jpg" alt="Our recent memory">
+    <img src="photo9.jpg" alt="Our recent memory">
+    <img src="photo10.jpg" alt="Our recent memory">
+    <img src="photo11.jpg" alt="Our recent memory">
+    <img src="photo12.jpg" alt="Our recent memory">
+    <img src="photo13.jpg" alt="Our recent memory">
+  </div>
+
+  <div class="card">
+    <h2>A Letter From My Heart 💌</h2>
+    <div id="letter">
+      My dearest love,
+
+      Happy anniversary, Tink! ❤️
+
+      Thank you for being part of my life.
+      Thank you for your love, your patience,
+      your smiles, and all the memories we share.
+
+      I may not be perfect, but I promise to keep
+      learning, growing, and loving you with all
+      my heart.
+
+      No matter what challenges come our way,
+      I hope we continue choosing each other,
+      supporting each other, and dreaming together.
+
+      You are one of the most beautiful parts
+      of my life, and I am so lucky to have you.
+
+      I love you today, tomorrow, and always.
+
+      Forever yours,
+      Your Babu ❤️
+    </div>
+  </div>
+
+  <button onclick="surprise()">
+    One More Surprise 🎁
+  </button>
+
+  <p id="surpriseMessage"></p>
+</section>
+
+<footer>
+  Made with all my love, just for you ❤️
+  <p>Forever and always. ♾️</p>
+</footer>
+
+<script>
+// CHANGE THIS TO YOUR ANNIVERSARY DATE
+// Format: YYYY-MM-DD
+const anniversaryDate = "2023-10-21";
+
+function updateCounter() {
+  const start = new Date(anniversaryDate + "T00:00:00");
+  const now = new Date();
+  const days = Math.floor(
+    (now - start) / (1000 * 60 * 60 * 24)
+  );
+
+  const counter = document.getElementById("counter");
+
+  if (isNaN(start.getTime())) {
+    counter.textContent = "Please set your anniversary date.";
+  } else if (days < 0) {
+    counter.textContent = "Our special day is coming! ❤️";
+  } else {
+    counter.textContent =
+      days + " beautiful days together and counting! 💕";
+  }
+}
+
+function showLetter() {
+  const letter = document.getElementById("letter");
+  letter.style.display = "block";
+  letter.scrollIntoView({ behavior: "smooth" });
+}
+
+function surprise() {
+  document.getElementById("surpriseMessage").innerHTML =
+    "🌹 Surprise, Tink! You will always be my favorite person, my safest place, and my sweetest love." +
+    " I love you endlessly! ❤️";
+}
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.textContent = ["❤️", "💕", "💗", "💖"][
+    Math.floor(Math.random() * 4)
+  ];
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (18 + Math.random() * 20) + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 6000);
+}
+
+updateCounter();
+setInterval(createHeart, 700);
+</script>
+
+</body>
+</html>
